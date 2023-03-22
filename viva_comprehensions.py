@@ -33,7 +33,7 @@ def gen_dict(start: int, stop: int, strategy: Callable) -> Dict:
     :param strategy:
     :return:
     """
-    pass
+
 
 
 def gen_set(val_in: str) -> Set:
@@ -45,4 +45,4 @@ def gen_set(val_in: str) -> Set:
     :param val_in:
     :return:
     """
-    pass
+
