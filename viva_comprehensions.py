@@ -1,3 +1,4 @@
+import math
 from typing import List, Dict, Set, Callable
 import enum
 
@@ -8,6 +9,10 @@ class Parity(enum.Enum):
 
 
 def gen_list(start: int, stop: int, parity: Parity) -> List[int]:
+    if parity == Parity.ODD:
+        return [i for i in range(start, stop) if i % 2 != 0]
+    else:
+        return [i for i in range(start, stop) if i % 2 == 0]
     """
     Oh no some evil developer decided not to write docstrings. Maybe you can use the test cases to decipher
     what this method was supposed to do. Hey if you do, maybe you could do some good in this world by
@@ -18,10 +23,13 @@ def gen_list(start: int, stop: int, parity: Parity) -> List[int]:
     :param parity:
     :return:
     """
-    pass
 
 
 def gen_dict(start: int, stop: int, strategy: Callable) -> Dict:
+    result = {}
+    for i in range(start, stop):
+        result[i] = strategy(i)
+    return result
     """
     Oh no some evil developer decided not to write docstrings. Maybe you can use the test cases to decipher
     what this method was supposed to do. Hey if you do, maybe you could do some good in this world by
@@ -37,6 +45,8 @@ def gen_dict(start: int, stop: int, strategy: Callable) -> Dict:
 
 
 def gen_set(val_in: str) -> Set:
+    return set([i.upper() for i in val_in if i != i.upper()])
+
     """
     Oh no some evil developer decided not to write docstrings. Maybe you can use the test cases to decipher
     what this method was supposed to do. Hey if you do, maybe you could do some good in this world by
